@@ -15,7 +15,9 @@
 }
 
 #toggle { display: none; }
-.image-container { width: 300px; cursor: pointer; }
+.image-container { width: 32px;
+                  height: auto;
+                  cursor: pointer; }
 .original { display: block; }
 .new { display: none; }
 #toggle:checked + .image-container .original { display: none; }
