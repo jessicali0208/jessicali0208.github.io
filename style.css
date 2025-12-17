@@ -1,9 +1,16 @@
- .button{
-    width: 32px;
-    width: 5%;
-    height: auto;
-    }
-    .button {
-  display: block;
-  margin: 0 auto;
-    }
+ 
+.image-box {
+  position: fixed;   /* 固定在畫面上 */
+  bottom: 0;         /* 貼齊底部 */
+  left: 0;           /* 貼齊左邊 */
+  display: flex;     /* 讓裡面的圖片排隊 */
+  flex-direction: row; /* 直向排列（由下往上） */
+  gap: 4px;          /* 圖片間距 */
+  padding: 10px;
+}
+
+.image-box img {
+  width: 32px;       /* 控制圖片大小 */
+  height: auto;      /* 保持比例 */
+}
+
