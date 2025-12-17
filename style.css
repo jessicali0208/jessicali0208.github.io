@@ -14,3 +14,10 @@
   height: auto;      /* 保持比例 */
 }
 
+#toggle { display: none; }
+.image-container { width: 300px; cursor: pointer; }
+.original { display: block; }
+.new { display: none; }
+#toggle:checked + .image-container .original { display: none; }
+#toggle:checked + .image-container .new { display: block; }
+
