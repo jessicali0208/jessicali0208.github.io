@@ -1,40 +1,29 @@
 .image-box {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: fixed;      /* 固定在畫面上 */
+  bottom: 0;            /* 貼齊底部 */
+  left: 0;              /* 貼齊左邊 */
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column-reverse; /* 從下往上排列圖片 */
   gap: 4px;
   padding: 10px;
 }
 
 .image-box img {
-  width: 32px;
-  height: auto;
+  width: 32px;   /* 控制圖片大小 */
+  height: auto;  /* 保持比例 */
 }
 
-#toggle { display: none; }
+#toggle { display: none; } /* 隱藏 checkbox */
 
 .image-container {
   width: 300px;
-  cursor: pointer;
+  cursor: pointer;  /* 滑鼠變手指 */
   display: block;
-  position: relative; /* 為了讓圖片重疊 */
 }
 
-.original,
-.new {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.5s ease; /* 加入淡入淡出動畫 */
-  width: 100%;
-  height: auto;
-}
-
-.original { opacity: 1; }
-.new { opacity: 0; }
+.original { display: block; }
+.new { display: none; }
 
 /* 點擊切換圖片 */
-#toggle:checked + .image-container .original { opacity: 0; }
-#toggle:checked + .image-container .new { opacity: 1; }
+#toggle:checked + .image-container .original { display: none; }
+#toggle:checked + .image-container .new { display: block; }
