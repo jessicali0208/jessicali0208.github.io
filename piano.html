@@ -83,10 +83,18 @@
 
 <script>
   function play(note) {
-    const audio = new Audio(`sounds/${note}.mp3`);
-    audio.currentTime = 0;
+  // 嘗試先播 wav，如果沒找到再播 mp3
+  let audio = new Audio(`sounds/${note}.wav`);
+
+  audio.onerror = function() {
+    audio = new Audio(`sounds/${note}.mp3`);
     audio.play();
   }
+
+  audio.currentTime = 0;
+  audio.play();
+}
+
 </script>
 
 </body>
