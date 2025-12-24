@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>鋼琴</title>
+
+  <style>
+    body {
+      background: #f5f5f5;
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .piano {
+      position: relative;
+      width: 560px;
+      height: 300px;
+      margin: 40px auto;
+    }
+
+    .white-key {
+      width: 80px;
+      height: 300px;
+      background: white;
+      border: 1px solid black;
+      float: left;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .white-key:active {
+      background: #ddd;
+    }
+
+    .black-key {
+      width: 50px;
+      height: 180px;
+      background: black;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .black-key:active {
+      background: #444;
+    }
+
+    /* 黑鍵位置 */
+    .Cs { left: 55px; }
+    .Ds { left: 135px; }
+    .Fs { left: 295px; }
+    .Gs { left: 375px; }
+    .As { left: 455px; }
+  </style>
+</head>
+
+<body>
+
+<h1>🎹 點擊彈鋼琴</h1>
+
+<div class="piano">
+  <!-- 白鍵 -->
+  <div class="white-key" onclick="play('C')"></div>
+  <div class="white-key" onclick="play('D')"></div>
+  <div class="white-key" onclick="play('E')"></div>
+  <div class="white-key" onclick="play('F')"></div>
+  <div class="white-key" onclick="play('G')"></div>
+  <div class="white-key" onclick="play('A')"></div>
+  <div class="white-key" onclick="play('B')"></div>
+
+  <!-- 黑鍵 -->
+  <div class="black-key Cs" onclick="play('Cs')"></div>
+  <div class="black-key Ds" onclick="play('Ds')"></div>
+  <div class="black-key Fs" onclick="play('Fs')"></div>
+  <div class="black-key Gs" onclick="play('Gs')"></div>
+  <div class="black-key As" onclick="play('As')"></div>
+</div>
+
+<script>
+  function play(note) {
+    const audio = new Audio(`sounds/${note}.mp3`);
+    audio.currentTime = 0;
+    audio.play();
+  }
+</script>
+
+</body>
+</html>
