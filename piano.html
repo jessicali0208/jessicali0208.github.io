@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>彈鋼琴</title>
+
+  <!-- CSS 寫在這 -->
+  <style>
+    body {
+      text-align: center;
+    }
+    .key {
+      width: 80px;
+      height: 300px;
+      border: 1px solid black;
+      display: inline-block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎹 點我彈鋼琴</h1>
+
+<div class="key" onclick="play('C')">C</div>
+<div class="key" onclick="play('D')">D</div>
+
+<!-- JavaScript 寫在這 -->
+<script>
+  function play(note) {
+    const audio = new Audio(`sounds/${note}.mp3`);
+    audio.play();
+  }
+</script>
+
+</body>
+</html>
