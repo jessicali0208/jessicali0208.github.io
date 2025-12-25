@@ -86,11 +86,23 @@
   let record = [];
   let startTime = null;
 
-   function play(note) {
-    const audio = new Audio(`sounds/${note}.mp3`);
-    audio.currentTime = 0;
-    audio.play();
+  function play(note) {
+  const now = Date.now();
+
+  if (!startTime) {
+    startTime = now;
   }
+
+  record.push({
+    note: note,
+    time: now - startTime
+  });
+
+  const audio = new Audio(`sounds/${note}.mp3`);
+  audio.currentTime = 0;
+  audio.play();
+}
+
 
 </script>
 
