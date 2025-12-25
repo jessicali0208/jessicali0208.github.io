@@ -83,7 +83,7 @@
 
 <script>
   function play(note) {
-  let audio = new Audio(`sounds/${note}.wav`);
+  let audio = new Audio(`sounds/${note}.m4a`);
   audio.onerror = function() {
     audio = new Audio(`sounds/${note}.mp3`);
     audio.play();
