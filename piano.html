@@ -111,6 +111,10 @@ let startTime = null;
 let isRecording = false;
 
  function play(note) {
+   if (audioCtx.state === "suspended") {
+  audioCtx.resume();
+}
+
   const audio = new Audio(`sounds/${note}.m4a`);
   audio.currentTime = 0;
   audio.play();
