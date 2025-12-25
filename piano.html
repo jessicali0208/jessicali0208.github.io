@@ -105,6 +105,21 @@
   audio.currentTime = 0;
   audio.play();
 }
+function playRecord() {
+  if (record.length === 0) return;
+
+  record.forEach(item => {
+    setTimeout(() => {
+      const audio = new Audio(`sounds/${item.note}.mp3`);
+      audio.play();
+    }, item.time);
+  });
+}
+
+function clearRecord() {
+  record = [];
+  startTime = null;
+}
 
 
 </script>
