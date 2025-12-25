@@ -82,16 +82,11 @@
 </div>
 
 <script>
-  function play(note) {
-  let audio = new Audio(`sounds/${note}.m4a`);
-  audio.onerror = function() {
-    audio = new Audio(`sounds/${note}.mp3`);
+   function play(note) {
+    const audio = new Audio(`sounds/${note}.mp3`);
+    audio.currentTime = 0;
     audio.play();
   }
-  audio.currentTime = 0;
-  audio.play();
-}
-
 
 </script>
 
