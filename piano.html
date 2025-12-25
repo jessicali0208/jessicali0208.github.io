@@ -64,10 +64,12 @@
 
 .controls button {
   font-size: 16px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   margin: 0 6px;
+  border-radius: 6px;
   cursor: pointer;
 }
+
 
   </style>
 </head>
@@ -76,9 +78,11 @@
 
 <h1>🎹 點擊彈鋼琴</h1>
  <div class="controls">
-  <button onclick="playRecord()">▶ 回放</button>
-  <button onclick="clearRecord()">🗑 清除</button>
+  <button onclick="startRecord()">🎙 錄音</button>
+  <button onclick="stopRecord()">⏹ 停止</button>
+  <button onclick="playRecord()">▶ 播放</button>
 </div>
+
 
 <div class="piano">
   
@@ -102,20 +106,46 @@
 
 <script>
 
-  let record = [];
-  let startTime = null;
+ let record = [];
+let startTime = null;
+let isRecording = false;
 
-  function play(note) {
+ function play(note) {
+  const audio = new Audio(`sounds/${note}.m4a`);
+  audio.currentTime = 0;
+  audio.play();
+
+  if (!isRecording) return;
+
   const now = Date.now();
-
-  if (!startTime) {
-    startTime = now;
-  }
 
   record.push({
     note: note,
     time: now - startTime
   });
+}
+  function startRecord() {
+  record = [];
+  startTime = Date.now();
+  isRecording = true;
+}
+
+function stopRecord() {
+  isRecording = false;
+}
+
+function playRecord() {
+  if (record.length === 0) return;
+
+  record.forEach(item => {
+    setTimeout(() => {
+      const audio = new Audio(`sounds/${item.note}.m4a`);
+      audio.play();
+    }, item.time);
+  });
+}
+
+
 
   const audio = new Audio(`sounds/${note}.m4a`);
   audio.currentTime = 0;
