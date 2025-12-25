@@ -82,6 +82,10 @@
 </div>
 
 <script>
+
+  let record = [];
+  let startTime = null;
+
    function play(note) {
     const audio = new Audio(`sounds/${note}.mp3`);
     audio.currentTime = 0;
