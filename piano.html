@@ -101,7 +101,7 @@
     time: now - startTime
   });
 
-  const audio = new Audio(`sounds/${note}.mp3`);
+  const audio = new Audio(`sounds/${note}.m4a`);
   audio.currentTime = 0;
   audio.play();
 }
@@ -110,7 +110,7 @@ function playRecord() {
 
   record.forEach(item => {
     setTimeout(() => {
-      const audio = new Audio(`sounds/${item.note}.mp3`);
+      const audio = new Audio(`sounds/${item.note}.m4a`);
       audio.play();
     }, item.time);
   });
